@@ -16,7 +16,7 @@ This is my attempt to translate my php version to js.
 
 3. **Optional Configuration**
 
-   - If needed, update the allowed hosts in `pair.php`.
+   - If needed, update the allowed hosts in `endpoints/pair.js`.
 
 4. **Database Setup**
 
