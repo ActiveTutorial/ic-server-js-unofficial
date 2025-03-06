@@ -24,14 +24,14 @@ This is my attempt to translate my php version to js.
 
    ```sql
    CREATE TABLE results (
-     id INT AUTO_INCREMENT PRIMARY KEY,
+     id SERIAL PRIMARY KEY,
      first VARCHAR(255) NOT NULL,
      second VARCHAR(255) NOT NULL,
      result VARCHAR(255) NOT NULL
    );
 
    CREATE TABLE emojis (
-     id INT AUTO_INCREMENT PRIMARY KEY,
+     id SERIAL PRIMARY KEY,
      item VARCHAR(255) NOT NULL,
      emoji VARCHAR(255) NOT NULL
    );
