@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     const first = nealCase(req.query.first.trim());
     const second = nealCase(req.query.second.trim());
     const [item1, item2] = first < second ? [first, second] : [second, first];
-    const bothAlive = aliveCheck(first) && aliveCheck(second);
+    const bothAlive = (await aliveCheck(first)) && (await aliveCheck(second));
     if (!bothAlive) {
         return res.json({ result: 'Nothing', emoji: '', isNew: false });
     }
