@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { findResults, addRecipe, aliveCheck, addItem } = require('../databaseInteract');
 const { requestLLM } = require('../aiAPI');
-const { getPrompt } = require('../prompt');
+const { getPrompt } = require('../prompts');
 
 const allowedOrigins = ['http://localhost:3000', 'https://neal.fun'];
 
