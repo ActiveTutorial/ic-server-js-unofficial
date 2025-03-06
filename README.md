@@ -56,6 +56,10 @@ This is my attempt to translate my php version to js.
 
 5. **Run the Backend**
    - After completing the setup, the backend should be ready to run!
+   ```bash
+   npm i
+   node server.js
+   ```
 
 ## Troubleshooting
 
