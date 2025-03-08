@@ -37,10 +37,7 @@ https://ic-server-js-unofficial-425171697594.us-central1.run.app/api/infinite-cr
    ALLOWED_HOSTS=http://localhost:3000,https://neal.fun,https://beta.neal.fun
    ```
 
-3. **Optional Configuration**
-   - If needed, update the allowed hosts in `endpoints/pair.js`.
-
-4. **Database Setup**
+3. **Database Setup**
    - Before running the backend, execute the following SQL commands to set up the necessary tables in your pg database:
 
    ```sql
@@ -75,7 +72,7 @@ https://ic-server-js-unofficial-425171697594.us-central1.run.app/api/infinite-cr
    ('Wind', '💨');
    ```
 
-5. **Run the Backend**
+4. **Run the Backend**
    - After completing the setup, the backend should be ready to run.
    ```bash
    npm i
