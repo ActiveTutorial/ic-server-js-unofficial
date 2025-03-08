@@ -25,15 +25,15 @@ This is my attempt to translate my php version to js.
    ```sql
    CREATE TABLE results (
      id SERIAL PRIMARY KEY,
-     first VARCHAR(255) NOT NULL,
-     second VARCHAR(255) NOT NULL,
-     result VARCHAR(255) NOT NULL
+     first TEXT NOT NULL,
+     second TEXT NOT NULL,
+     result TEXT NOT NULL
    );
-
+   
    CREATE TABLE emojis (
      id SERIAL PRIMARY KEY,
-     item VARCHAR(255) NOT NULL,
-     emoji VARCHAR(255) NOT NULL
+     item TEXT NOT NULL UNIQUE,
+     emoji TEXT NOT NULL
    );
    ```
 

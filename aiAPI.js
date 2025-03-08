@@ -1,8 +1,9 @@
 const axios = require('axios');
-require('dotenv').config();
+//require('dotenv').config();
+const { apiCreds } = require('./config');
 
 const API_URL = 'https://api.together.xyz/v1/completions';
-const API_KEY = process.env.API_KEY;
+const API_KEY = apiCreds.key;
 
 async function requestLLM(prompt) {
     try {
@@ -11,12 +12,13 @@ async function requestLLM(prompt) {
             {
                 model: 'meta-llama/Llama-2-70b-hf',
                 prompt: prompt,
-                max_tokens: 20,
+                max_tokens: 20, // Current token limit
+                // AI settings, ask on Discord for more info
                 temperature: 0,
                 top_p: 0,
                 top_k: 100,
                 repetition_penalty: 1,
-                stop: ['\n']
+                stop: ['\n'] // Stop at new line
             },
             {
                 headers: {
@@ -27,7 +29,7 @@ async function requestLLM(prompt) {
         );
         return response.data.choices?.[0]?.text?.trim() || "Nothing";
     } catch (error) {
-        return "Nothing"; // Return "Nothing" on error
+        return ""; // Return "" on error
     }
 }
 
