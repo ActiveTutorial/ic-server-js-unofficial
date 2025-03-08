@@ -82,6 +82,7 @@ https://ic-server-js-unofficial-425171697594.us-central1.run.app/api/infinite-cr
 ## Troubleshooting
 
 @activetutorial on Discord – DM me ~~or ask in the Discord server~~.
+Or ask in my discord server: https://discord.gg/4Gt8WJ52ua
 Also, if the emojis are off, that's because Neal doesn’t use together.ai for those. Nobody knows for sure what the prompt is.
 
 ## License
