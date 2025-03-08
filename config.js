@@ -14,4 +14,12 @@ const apiCreds = {
 
 const port = process.env.PORT || 3000;
 
-module.exports = { databaseCreds, apiCreds, port };
+const allowedHosts = process.env.ALLOWED_HOSTS ?
+    process.env.ALLOWED_HOSTS.split(',') :
+    [
+        'http://localhost:3000', // local dev
+        'https://neal.fun', // normal site
+        'https://beta.neal.fun' // beta site
+    ];
+
+module.exports = { databaseCreds, apiCreds, port, allowedHosts };

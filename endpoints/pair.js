@@ -3,9 +3,10 @@ const router = express.Router();
 const { findResults, addRecipe, itemExists, addItem } = require('../databaseInteract');
 const { requestLLM } = require('../aiAPI');
 const { getPrompt } = require('../prompts');
+const { allowedHosts } = require('../config');
 
 // Allowed origins
-const allowedOrigins = ['http://localhost:3000', 'https://neal.fun'];
+const allowedOrigins = allowedHosts;
 
 router.get('/', async (req, res) => {
     const origin = req.get('Origin');
