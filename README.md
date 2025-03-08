@@ -1,8 +1,15 @@
 # Unofficial Infinite Craft Backend
 
-This is an unofficial backend server for Infinite Craft by Neal from neal.fun: https://neal.fun/infinite-craft/
+This is an unofficial backend server for Infinite Craft by Neal,
+from neal.fun: https://neal.fun/infinite-craft/
 
 This is my attempt to translate my PHP version to JS.
+
+My (propably) currently running private server:
+
+```
+https://ic-server-js-unofficial-425171697594.us-central1.run.app/api/infinite-craft/pair?first={first}&second={second}&ref=app
+```
 
 ## Setup Instructions
 
