@@ -16,8 +16,10 @@ https://ic-server-js-unofficial-425171697594.us-central1.run.app/api/infinite-cr
 1. **Download Files**
    - Clone this repository
 
-2. **Configure API Key and Database Credentials**
-   - Set up enviroment variables.
+2. **Configure Enviroment Variables**
+   - Set up pg credentials
+   - Set up together ai token
+   - Configure settings
 
    ```env
    # Postgress credentials
@@ -32,8 +34,6 @@ https://ic-server-js-unofficial-425171697594.us-central1.run.app/api/infinite-cr
 
    # Misc config
    PORT=3000
-
-   # Allowed hosts
    ALLOWED_HOSTS=http://localhost:3000,https://neal.fun,https://beta.neal.fun
    ```
 
