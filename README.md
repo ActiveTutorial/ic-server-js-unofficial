@@ -2,25 +2,36 @@
 
 This is an unofficial backend server for Infinite Craft by Neal from neal.fun: https://neal.fun/infinite-craft/
 
-This is my attempt to translate my php version to js.
+This is my attempt to translate my PHP version to JS.
 
 ## Setup Instructions
 
 1. **Download Files**
-
    - Clone this repository
 
 2. **Configure API Key and Database Credentials**
+   - Set up enviroment variables.
 
-   - Replace the placeholders in `.env` with your credentials.
+   ```env
+   # Postgress credentials
+   PG_HOST=your_host
+   PG_USER=your_user
+   PG_PASSWORD=your_password
+   PG_DATABASE=your_database
+   PG_PORT=your_port
+
+   # together.ai credentials
+   API_KEY=your_api_key
+
+   # Misc config
+   PORT=3000
+   ```
 
 3. **Optional Configuration**
-
    - If needed, update the allowed hosts in `endpoints/pair.js`.
 
 4. **Database Setup**
-
-   - Before running the backend, execute the following SQL commands to set up the necessary tables in your database:
+   - Before running the backend, execute the following SQL commands to set up the necessary tables in your pg database:
 
    ```sql
    CREATE TABLE results (
@@ -37,13 +48,13 @@ This is my attempt to translate my php version to js.
    );
    ```
 
-   - Then insert the following data into the `recipes` and `emojis` tables:
+   - Then insert the following data into the `results` and `emojis` tables:
 
    ```sql
    INSERT INTO results (first, second, result) VALUES
    ('Water', 'Water', 'Lake'),
    ('Earth', 'Earth', 'Mountain'),
-   ('Water', 'Fire', 'Steam'),
+   ('Fire', 'Water', 'Steam'),
    ('Wind', 'Wind', 'Tornado'),
    ('Earth', 'Water', 'Plant');
 
@@ -55,17 +66,18 @@ This is my attempt to translate my php version to js.
    ```
 
 5. **Run the Backend**
-   - After completing the setup, the backend should be ready to run!
+   - After completing the setup, the backend should be ready to run.
    ```bash
    npm i
-   node server.js
+   npm start
    ```
 
 ## Troubleshooting
 
-@activetutorial on Discord dm me or ask in discord server.
-Also if the mojis are off, thats because Neal doesnt use together.ai for those, nobody knows for shure what and what the promopt is.
+@activetutorial on Discord – DM me ~~or ask in the Discord server~~.
+Also, if the emojis are off, that's because Neal doesn’t use together.ai for those. Nobody knows for sure what the prompt is.
 
 ## License
 
-Read LICENSE
+Read LICENSE (MIT)
+
