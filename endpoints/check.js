@@ -1,5 +1,5 @@
 const express = require('express');
-const { findRecipe, findResults } = require('../databaseInteract');
+const { findRecipe, findResults } = require('../logic/databaseInteract');
 
 const router = express.Router();
 

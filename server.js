@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const { port } = require('./config');
+const { port } = require('./logic/config');
 
 dotenv.config();
 const app = express();

@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { findResults, addRecipe, itemExists, addItem } = require('../databaseInteract');
-const { requestLLM } = require('../aiAPI');
-const { getPrompt } = require('../prompts');
-const { allowedHosts } = require('../config');
+const { findResults, addRecipe, itemExists, addItem } = require('../logic/databaseInteract');
+const { requestLLM } = require('../logic/aiAPI');
+const { getPrompt } = require('../logic/prompts');
+const { allowedHosts } = require('../logic/config');
 
 // Allowed origins
 const allowedOrigins = allowedHosts;
