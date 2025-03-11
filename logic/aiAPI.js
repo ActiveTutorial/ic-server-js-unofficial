@@ -1,5 +1,4 @@
 const axios = require('axios');
-//require('dotenv').config();
 const { apiCreds } = require('./config');
 
 const API_URL = 'https://api.together.xyz/v1/completions';

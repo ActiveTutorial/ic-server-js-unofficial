@@ -1,8 +1,16 @@
+// Dependency
 const express = require('express');
 const router = express.Router();
-const { findResults, addRecipe, itemExists, addItem } = require('../logic/databaseInteract');
+// Functions
+const {
+    findResults,
+    addRecipe,
+    itemExists,
+    addItem 
+} = require('../logic/databaseInteract');
 const { requestLLM } = require('../logic/aiAPI');
 const { getPrompt } = require('../logic/prompts');
+// Config
 const { allowedHosts } = require('../logic/config');
 
 // Allowed origins
@@ -35,10 +43,10 @@ router.get('/', async (req, res) => {
     }
 
     // Neal case and trim inputs
-    const first = nealCase(req.query.first.trim());
-    const second = nealCase(req.query.second.trim());
+    let first = nealCase(req.query.first.trim());
+    let second = nealCase(req.query.second.trim());
     // Sort items alphabetically
-    const [item1, item2] = first < second ? [first, second] : [second, first];
+    [first, second] = first < second ? [first, second] : [second, first];
     // Alive check
     // Both need to be alive (in the sense of being in db) and have a length less than 30
     const bothAlive = (await itemExists(first)) && (await itemExists(second))
@@ -49,7 +57,7 @@ router.get('/', async (req, res) => {
     }
 
     // Get the result and emoji
-    let apiResult = await getCraftResponse('result', item1, item2);
+    let apiResult = await getCraftResponse('result', first, second);
     let emoji = await getCraftResponse('emoji', apiResult.value);
 
     res.json({ result: apiResult.value || nothing.result, emoji: emoji.value || nothing.emoji, isNew: apiResult.isNew });
