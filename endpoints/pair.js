@@ -8,6 +8,9 @@ const { allowedHosts } = require('../logic/config');
 // Allowed origins
 const allowedOrigins = allowedHosts;
 
+// Default response
+const nothing = { result: 'Nothing', emoji: '', isNew: false };
+
 router.get('/', async (req, res) => {
     const origin = req.get('Origin');
     if (req.query.ref === 'app') {
@@ -28,7 +31,7 @@ router.get('/', async (req, res) => {
 
     // Check if first and second are provided
     if (!req.query.first || !req.query.second) {
-        return res.json({ result: 'Nothing', emoji: '', isNew: false });
+        return res.json(nothing);
     }
 
     // Neal case and trim inputs
@@ -42,14 +45,14 @@ router.get('/', async (req, res) => {
         && first.length <= 30 && second.length <= 30;
     // If either item is dead, return Nothing
     if (!bothAlive) {
-        return res.json({ result: 'Nothing', emoji: '', isNew: false });
+        return res.json(nothing);
     }
 
     // Get the result and emoji
     let apiResult = await getCraftResponse('result', item1, item2);
     let emoji = await getCraftResponse('emoji', apiResult.value);
 
-    res.json({ result: apiResult.value || 'Nothing', emoji: emoji.value || '', isNew: apiResult.isNew });
+    res.json({ result: apiResult.value || nothing.result, emoji: emoji.value || nothing.emoji, isNew: apiResult.isNew });
 });
 
 function nealCase(input) {
@@ -74,7 +77,7 @@ async function getCraftResponse(type, ...args) {
             return { value: apiResult, isNew: false };
         case 'emoji':
             // 'Nothing' has no emoji
-            if (args[0] === 'Nothing') return { value: '' };
+            if (args[0] === nothing.result) return { value: nothing.emoji };
             // Search db
             let emoji = await findResults('emoji', args[0]);
             if (!emoji) { // Means it's either not there or an empty string
